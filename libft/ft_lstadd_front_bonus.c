@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:55:21 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/09/30 15:43:58 by ccaballe          #+#    #+#             */
+/*   Updated: 2022/09/30 16:17:10 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(int err, char *msg)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	ft_printf(msg);
-	exit(err);
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		ft_error(0, "please enter an argument");
-	check_map(argv[1]);
-	return (0);
+	new->next = *lst;
+	*lst = new;
 }

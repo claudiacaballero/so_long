@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:55:21 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/09/22 19:49:08 by ccaballe          #+#    #+#             */
+/*   Updated: 2022/09/24 17:08:30 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(int err, char *msg)
+void	ft_putendl_fd(char *s, int fd)
 {
-	ft_printf(msg);
-	exit(err);
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		ft_error(0, "please enter an argument");
-	check_map(argv[1]);
-	return (0);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

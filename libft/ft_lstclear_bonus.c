@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:55:21 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/09/30 17:20:52 by ccaballe          #+#    #+#             */
+/*   Updated: 2022/09/30 18:50:20 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(int err, char *msg)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	ft_printf(msg);
-	exit(err);
-}
+	t_list	*temp;
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		ft_error(0, "please enter an argument");
-	check_map(argv[1]);
-	return (0);
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
+	}
 }

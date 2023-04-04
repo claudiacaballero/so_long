@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:55:21 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/09/19 16:25:43 by ccaballe          #+#    #+#             */
+/*   Updated: 2023/01/04 13:01:46 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(int err, char *msg)
+int	ft_atoi(char *str)
 {
-	ft_printf(msg);
-	exit(err);
-}
+	int	i;
+	int	neg;
+	int	res;
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		ft_error(0, "please enter an argument");
-	check_map(argv[1]);
-	return (0);
+	i = 0;
+	neg = 1;
+	res = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == 43 || str[i] == 45)
+	{
+		if (str[i] == 45)
+			neg *= -1;
+		i++;
+	}
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		res = (res * 10) + (str[i] - '0');
+		i++;
+	}
+	return (neg * res);
 }

@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:55:21 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/09/14 14:54:25 by ccaballe          #+#    #+#             */
+/*   Updated: 2022/09/19 18:04:06 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(int err, char *msg)
+int	ft_isalpha(int c)
 {
-	ft_printf(msg);
-	exit(err);
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		ft_error(0, "please enter an argument");
-	check_map(argv[1]);
-	return (0);
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	else
+		return (0);
 }

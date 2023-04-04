@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:55:21 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/09/21 19:55:06 by ccaballe          #+#    #+#             */
+/*   Updated: 2023/01/04 13:03:48 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(int err, char *msg)
+char	*ft_strdup(char *s)
 {
-	ft_printf(msg);
-	exit(err);
-}
+	char	*m;
+	int		i;
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		ft_error(0, "please enter an argument");
-	check_map(argv[1]);
-	return (0);
+	m = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!m)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		m[i] = s[i];
+		i++;
+	}
+	m[i] = '\0';
+	return (m);
 }

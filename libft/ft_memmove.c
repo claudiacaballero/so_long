@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:55:21 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/09/19 16:41:19 by ccaballe          #+#    #+#             */
+/*   Updated: 2023/01/04 13:03:21 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(int err, char *msg)
+void	*ft_memmove(void *dst, void *src, size_t len)
 {
-	ft_printf(msg);
-	exit(err);
-}
+	size_t			i;
+	unsigned char	*a;
+	unsigned char	*b;
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		ft_error(0, "please enter an argument");
-	check_map(argv[1]);
-	return (0);
+	i = 0;
+	a = (unsigned char *)dst;
+	b = (unsigned char *)src;
+	if (!dst && !src)
+		return (NULL);
+	if (a <= b)
+	{
+		ft_memcpy(dst, src, len);
+	}
+	else
+	{
+		while (len > 0)
+		{
+			a[len - 1] = b[len - 1];
+			len--;
+		}
+	}
+	return (dst);
 }

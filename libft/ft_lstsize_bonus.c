@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:55:21 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/09/30 15:54:16 by ccaballe          #+#    #+#             */
+/*   Updated: 2022/09/30 16:25:39 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(int err, char *msg)
+int	ft_lstsize(t_list *lst)
 {
-	ft_printf(msg);
-	exit(err);
-}
+	int		count;
+	t_list	*temp;
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		ft_error(0, "please enter an argument");
-	check_map(argv[1]);
-	return (0);
+	count = 0;
+	temp = lst;
+	if (!lst)
+		return (0);
+	while (temp->next != NULL)
+	{
+		count++;
+		temp = temp->next;
+	}
+	if (temp->next == NULL)
+		count++;
+	return (count);
 }

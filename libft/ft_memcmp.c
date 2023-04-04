@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:55:21 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/09/21 18:09:08 by ccaballe          #+#    #+#             */
+/*   Updated: 2023/01/04 13:03:13 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(int err, char *msg)
+int	ft_memcmp(void *s1, void *s2, size_t n)
 {
-	ft_printf(msg);
-	exit(err);
-}
+	size_t			i;
+	unsigned char	*a;
+	unsigned char	*b;
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		ft_error(0, "please enter an argument");
-	check_map(argv[1]);
-	return (0);
+	i = 0;
+	a = (unsigned char *)s1;
+	b = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	while (a[i] == b[i] && i < n - 1)
+		i++;
+	return ((unsigned char)a[i] - (unsigned char)b[i]);
 }

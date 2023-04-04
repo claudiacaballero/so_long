@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:55:21 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/10/04 15:33:56 by ccaballe          #+#    #+#             */
+/*   Updated: 2022/10/19 15:04:01 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	ft_error(int err, char *msg)
-{
-	ft_printf(msg);
-	exit(err);
-}
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		ft_error(0, "please enter an argument");
-	check_map(argv[1]);
-	return (0);
-}
+int	ft_putchar(char c);
+int	ft_putstr(char *s);
+int	ft_putnbr(long long int nb, int c);
+int	ft_putnbr_base(unsigned int nb, char c);
+int	ft_putptr(unsigned long ptr);
+int	ft_print_arg(va_list args, char type);
+int	ft_printf(char const *str, ...);
+
+#endif
