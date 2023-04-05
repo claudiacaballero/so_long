@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:42:46 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/20 17:17:00 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:13:38 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -27,6 +28,7 @@ typedef struct s_list
 #  define BUFFER_SIZE	(int)1
 # endif
 
+//libft
 int		ft_atoi(char *str);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
@@ -62,6 +64,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_itoa(int n);
 char	**ft_split(char *s, char c);
 
+//bonus
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -72,7 +75,16 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+//gnl
 char	*ft_strjoin_free(char *storage, char *buffer);
 char	*get_next_line(int fd);
+
+//printf
+int		ft_printf(char const *str, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putptr(unsigned long ptr);
+int		ft_putnbr(long long int nb, int c);
+int		ft_putnbr_base(unsigned int nb, char c);
 
 #endif

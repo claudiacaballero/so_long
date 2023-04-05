@@ -6,17 +6,18 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 16:59:59 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:27:29 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
+// # include <mlx.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
+# include "libft/libft.h"
 
 //struct
 typedef struct s_game

@@ -6,12 +6,11 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:35:29 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/30 14:59:54 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:11:26 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_print_arg(va_list args, char type)
 {

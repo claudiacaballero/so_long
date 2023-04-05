@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:04:51 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/04 17:04:16 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:34:17 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	check_map(char *file)
 {
 	int		fd;
 	char	*line;
-	int		len_line;
+	size_t	len_line;
 	t_game	game;
 
 	//ber file
 	fd = open(file, O_RDONLY);
-	line = get_next_ine(fd);
+	line = get_next_line(fd);
 	if (!line)
-		ft_error(1, "enter a non-empty file")
+		ft_error(1, "enter a non-empty file");
 	len_line = ft_strlen(line);
 	//check_first_line
 	while (line)
@@ -33,7 +33,7 @@ void	check_map(char *file)
 		valid_line(line, &game);
 		//potser fer una flag de veure si la ultima (?) per fer un check_last_line
 		free(line);
-		line = get_next_ine(fd);
+		line = get_next_line(fd);
 	}
 	free(line);
 	//check_items per checkear q hi ha "1 exit, at least 1 collectible, and 1 starting position"
