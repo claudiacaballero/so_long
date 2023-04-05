@@ -6,12 +6,11 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:12:30 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/02/14 12:00:03 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/05 17:11:12 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	ft_num_words(char *s, char c)
 {
