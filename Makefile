@@ -6,7 +6,7 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 16:28:40 by ccaballe          #+#    #+#              #
-#    Updated: 2023/04/05 16:46:57 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/04/08 15:23:31 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,12 @@ $(OBJ_DIR)%.o: %.c Makefile
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -I./ -c $< -o $@
 
-all: $(NAME)
+all:
+	@$(MAKE) -C libft
+	@$(MAKE) $(NAME)
 
 $(NAME):: $(OBJS)
-	@$(MAKE) -C libft
+	
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $@
 	@echo "$(GREEN)so_long compiled$(NC)"
 

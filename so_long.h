@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/06 18:22:24 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/08 17:22:00 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ typedef struct s_game
 	int		collected;
 	t_map	map;
 }	t_game;
+
+typedef struct s_point
+{
+	int	row;
+	int	col;
+}	t_point;
 
 //main
 void	ft_error(int err, char *msg);

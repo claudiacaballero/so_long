@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 17:21:00 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/08 17:32:10 by ccaballe         ###   ########.fr       */
+/*   Created: 2023/04/05 17:18:03 by ccaballe          #+#    #+#             */
+/*   Updated: 2023/04/08 17:20:01 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	path_checker(char **map)
 {
-	int		i;
-	int		j;
-	t_point	orig;
+	int	i;
+	int	j;
+	int	orig[2];
 
 	i = -1;
 	while (map[++i])
@@ -26,27 +26,28 @@ void	path_checker(char **map)
 		{
 			if (map[i][j] == "C")
 			{
-				orig->row = i;
-				orig->col = j;
-				find_path(map, &orig, find_item(map, 'P'));
+				orig[0] = i;
+				orig[1] = j;
+				find_path(map, orig, find_item(map, 'P'));
 			}
 		}
 	}
 	find_path(map, find_item(map, 'P'), find_item(map, 'E'));
 }
 
-void	*find_path(char **map, t_point orig, int dest[2])
+void	*find_path(char **map, int orig[2], int dest[2])
 {
 	int	**arr;
 	int	i;
 	int	j;
 
-	arr = (t_point *)malloc(sizeof(t_point) * 1);
-	if (!arr)
-		ft_error(1, "ERROR: Memory problems\n");
-	arr[0] = orig;
+	arr = (int **)malloc(sizeof(int *) * 1);
+	arr[0][0] = orig[0];
+	arr[0][1] = orig[1];
 	while (arr[0])
 	{
+		i = arr[0][0];
+		j = arr[0][1];
 		if (i > 0 && map[i - 1][j] != '1')
 			arr = ft_new_arr('a', arr, map[i - 1][j]);
 		if (map[i + 1] && map[i - 1][j] != '1')
@@ -89,11 +90,11 @@ int	**ft_addpoint(char c, int **arr, int point[2])
 	return (new_arr);
 }
 
-t_point	find_item(char **map, char item)
+int	*find_item(char **map, char item)
 {
-	int		i;
-	int		j;
-	t_point	p;
+	int	i;
+	int	j;
+	int	point[2];
 
 	i = -1;
 	while (map[++i])
@@ -103,9 +104,9 @@ t_point	find_item(char **map, char item)
 		{
 			if (map[i][j] == item)
 			{
-				p->row = i;
-				p->col = j;
-				return (p);
+				point[0] = i;
+				point[1] = j;
+				return (point);
 			}
 		}
 	}

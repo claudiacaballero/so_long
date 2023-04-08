@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:12:30 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/05 17:11:12 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:32:25 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static size_t	ft_lenword(char *s, int i, char c)
 	return ((size_t)i - start);
 }
 
-static void	*ft_free(char **m)
+void	*matrix_free(char **m)
 {
 	int	i;
 
@@ -73,7 +73,7 @@ char	**ft_split(char *s, char c)
 		{
 			m[row] = ft_substr(s, i, ft_lenword(s, i, c));
 			if (!m[row])
-				return (ft_free(m));
+				return (matrix_free(m));
 			i += ft_lenword(s, i, c) + 1;
 			row++;
 		}

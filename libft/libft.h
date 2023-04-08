@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:42:46 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/06 17:52:20 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:32:39 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char	*ft_strmapi(char *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_itoa(int n);
 char	**ft_split(char *s, char c);
+void	*matrix_free(char **m);
 
 //extras 
 char	*ft_strstr(char *h, char *n);

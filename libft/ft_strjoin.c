@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:18:56 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/05 17:11:23 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:23:51 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_strjoin_free(char *storage, char *buffer)
 	char	*str;
 
 	if (!storage)
-		return (NULL);
+		return (ft_strdup(buffer));
 	str = malloc(sizeof(char) * ((ft_strlen(storage) + ft_strlen(buffer)) + 1));
 	if (!str)
 		return (ft_free(&storage));
