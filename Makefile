@@ -6,13 +6,13 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 16:28:40 by ccaballe          #+#    #+#              #
-#    Updated: 2023/04/08 15:23:31 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/04/10 12:52:46 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror -MMD
-SRC = so_long.c map_checker.c 
+SRC = so_long.c map_checker.c path_finder.c 
 
 OBJ_DIR = objects/
 OBJS = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))

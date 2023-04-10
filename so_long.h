@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/08 17:22:00 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:37:46 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 typedef struct s_map
 {
 	char	**map;
+	int		len;
+	int		heig;
 	int		p;
 	int		e;
 	int		c;
@@ -49,5 +51,12 @@ void	ft_error(int err, char *msg);
 void	check_map(char *file, t_game *game);
 void	valid_line(char *line, t_game *game);
 void	check_items(t_game *game);
+void	map_dimentions(t_game *game);
+
+//path finder
+void	path_checker(t_game game);
+char	**temp_map(t_game game, int row, int col);
+void	find_path(char **map, t_game game);
+int		expand_c(char **map, int row, int col, t_game game);
 
 #endif

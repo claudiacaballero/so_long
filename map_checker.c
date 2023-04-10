@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:04:51 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/08 15:29:00 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/10 12:48:18 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	check_map(char *file, t_game *game)
 		line = get_next_line(fd);
 	}
 	game->map.map = ft_split(str_map, '\n');
+	map_dimentions(game);
 	free(str_map);
 	check_items(game);
 	close(fd);
@@ -89,4 +90,19 @@ void	check_items(t_game *game)
 	while (--j >= 0)
 		if (game->map.map[i - 1][j] != '1')
 			ft_error(1, "ERROR\nMap borders should be walls\n");
+}
+
+void	map_dimentions(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->map.map[i])
+		i++;
+	j = 0;
+	while (game->map.map[0][j])
+		j++;
+	game->map.len = j;
+	game->map.heig = i;
 }
