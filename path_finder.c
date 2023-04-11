@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:07:06 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/10 17:50:27 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/11 13:13:33 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	path_checker(t_game game)
 			{
 				map = temp_map(game, i, j);
 				find_path(map, game);
-				printf("test\n");
 				matrix_free(map);
 			}
 		}
@@ -84,10 +83,10 @@ void	find_path(char **map, t_game game)
 					return ;
 				if (e == 0)
 					ft_error(1, "ERROR\nNo valid path found");
-				find_path(map, game);
 			}
 		}
 	}
+	find_path(map, game);
 }
 
 int	expand_c(char **map, int row, int col, t_game game)
