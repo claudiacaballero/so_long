@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/11 15:46:10 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/24 18:36:02 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_game
 {
 	int		movements;
 	int		collected;
+	int		exit_found;
 	t_map	map;
 }	t_game;
 
@@ -55,5 +56,8 @@ void	map_dimentions(t_game *game);
 
 //path finder
 void	path_checker(t_game game);
+char	**temp_map(t_game game);
+int		valid_path(t_game game, char **map, int row, int col);
+int		valid_cell(t_game game, char **map, int row, int col);
 
 #endif
