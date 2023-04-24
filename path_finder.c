@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:21:54 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/24 18:42:36 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/24 18:48:59 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,24 +50,24 @@ int	valid_path(t_game game, char **map, int row, int col)
 	if (game.collected == game.map.c && game.exit_found == 1)
 		return (1);
 	map[row][col] = '1';
-	if (valid_cell(game, map, row, ++col))
+	if (valid_cell(game, map, row, col + 1))
 	{
-		if (valid_path(game, map, row, col))
+		if (valid_path(game, map, row, ++col))
 			return (1);
 	}
-	else if (valid_cell(game, map, ++row, --col))
+	else if (valid_cell(game, map, row + 1, col))
 	{
-		if (valid_path(game, map, row, col))
+		if (valid_path(game, map, ++row, col))
 			return (1);
 	}
-	else if (valid_cell(game, map, --row, --col))
+	else if (valid_cell(game, map, row, col - 1))
 	{
-		if (valid_path(game, map, row, col))
+		if (valid_path(game, map, row, --col))
 			return (1);
 	}
-	else if (valid_cell(game, map, --row, col))
+	else if (valid_cell(game, map, row - 1, col))
 	{
-		if (valid_path(game, map, row, col))
+		if (valid_path(game, map, --row, col))
 			return (1);
 	}
 	return (0);
