@@ -6,7 +6,7 @@
 /*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:21:54 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/25 13:08:24 by claudia          ###   ########.fr       */
+/*   Updated: 2023/04/25 18:44:01 by claudia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,3 @@ int	valid_cell(t_game *game, char **map, int row, int col)
 	}
 	return (0);
 }
-
-/*
-if valid path (ha trobat la exit i totes les monedes)
-	return 1
-while (anar recorrent el mapa)
-	if posicio valida 
-		if path_checker (nou mapa)
-			return 1
-		reiniciar bucle 
-return 0
-*/

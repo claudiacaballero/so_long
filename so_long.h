@@ -6,7 +6,7 @@
 /*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/25 12:33:21 by claudia          ###   ########.fr       */
+/*   Updated: 2023/04/25 16:34:58 by claudia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,6 @@ typedef struct s_game
 	int		exit_found;
 	t_map	map;
 }	t_game;
-
-typedef struct s_point
-{
-	int	row;
-	int	col;
-}	t_point;
 
 //main
 void	ft_error(int err, char *msg);

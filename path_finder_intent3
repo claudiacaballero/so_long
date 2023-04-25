@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path_finder_intent3                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:07:06 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/20 14:12:42 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:16:47 by claudia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,3 +126,14 @@ int	expand_c(char **map, int row, int col, t_game game)
 	}
 	return (i);
 }
+
+/*
+if valid path (ha trobat la exit i totes les monedes)
+	return 1
+while (anar recorrent el mapa)
+	if posicio valida 
+		if path_checker (nou mapa)
+			return 1
+		reiniciar bucle 
+return 0
+*/
