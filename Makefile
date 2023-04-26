@@ -6,7 +6,7 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 16:28:40 by ccaballe          #+#    #+#              #
-#    Updated: 2023/04/26 15:25:48 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/04/26 17:27:09 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ all:
 
 $(NAME):: $(OBJS)
 	
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $@
+	@$(CC) -framework OpenGL -framework Appkit $(CFLAGS) $(OBJS) $(LIBS) -o $@
 	@echo "$(GREEN)so_long compiled$(NC)"
 
 $(NAME)::

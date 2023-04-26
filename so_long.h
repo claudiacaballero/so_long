@@ -6,14 +6,13 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/26 14:56:50 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:36:38 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-// # include <mlx.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -22,26 +21,33 @@
 # include "mlx/mlx.h"
 
 //structs
-typedef struct s_map
-{
-	char	**map;
-	int		len;
-	int		heig;
-	int		p;
-	int		e;
-	int		c;
-}	t_map;
+// typedef struct s_map
+// {
+// 	char	**map;
+// 	int		len;
+// 	int		heig;
+// 	int		p;
+// 	int		e;
+// 	int		c;
+// }	t_map;
 
 typedef struct s_game
 {
 	int		movements;
 	int		collected;
 	int		exit_found;
-	t_map	map;
+	// t_map	map;
+	char	**map;
+	int		len;
+	int		heig;
+	int		p;
+	int		e;
+	int		c;
 }	t_game;
 
 //main
 void	ft_error(int err, char *msg);
+void	init_game(t_game *game);
 
 //map_checker
 void	check_map(char *file, t_game *game);

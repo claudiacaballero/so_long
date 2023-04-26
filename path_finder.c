@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path_finder.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:21:54 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/25 18:44:01 by claudia          ###   ########.fr       */
+/*   Updated: 2023/04/26 17:50:38 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	path_checker(t_game *game)
 					ft_error(0, "ERROR\nNo valid path found");
 	}
 	matrix_free(map);
-	ft_printf("path found");
+	game->exit_found = 0;
+	game->collected = 0;
 }
 
 char	**temp_map(t_game *game)
@@ -37,46 +38,46 @@ char	**temp_map(t_game *game)
 	char	**map;
 	int		i;
 
-	map = (char **)malloc(sizeof(char *) * (game->map.heig + 1));
+	map = (char **)malloc(sizeof(char *) * (game->heig + 1));
 	if (!map)
 		ft_error(1, "ERROR: Could not allocate memory");
 	i = -1;
-	while (game->map.map[++i])
-		map[i] = ft_substr(game->map.map[i], 0, game->map.len);
+	while (game->map[++i])
+	{
+		map[i] = ft_substr(game->map[i], 0, game->len);
+		if (!map[i])
+		{
+			matrix_free(map);
+			ft_error(1, "ERROR: Could not allocate memory");
+		}
+	}
+	map[i] = NULL;
 	return (map);
 }
 
 int	valid_path(t_game *game, char **map, int row, int col)
 {
-	if (game->collected == game->map.c && game->exit_found == 1)
+	if (game->collected == game->c && game->exit_found == 1)
 		return (1);
 	map[row][col] = '1';
 	if (valid_cell(game, map, row, col + 1))
-	{
 		if (valid_path(game, map, row, col + 1))
 			return (1);
-	}
 	if (valid_cell(game, map, row + 1, col))
-	{
 		if (valid_path(game, map, row + 1, col))
 			return (1);
-	}
 	if (valid_cell(game, map, row, col - 1))
-	{
 		if (valid_path(game, map, row, col - 1))
 			return (1);
-	}
 	if (valid_cell(game, map, row - 1, col))
-	{
 		if (valid_path(game, map, row - 1, col))
 			return (1);
-	}
 	return (0);
 }
 
 int	valid_cell(t_game *game, char **map, int row, int col)
 {
-	if (row >= 0 && row <= game->map.heig && col >= 0 && col <= game->map.len)
+	if (row >= 0 && row < game->heig && col >= 0 && col < game->len)
 	{
 		if (map[row][col] == '1')
 			return (0);
