@@ -6,7 +6,7 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 16:28:40 by ccaballe          #+#    #+#              #
-#    Updated: 2023/04/24 17:27:36 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/04/26 15:25:48 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ GREEN = \033[1;92m
 RED = \033[1;91m
 NC = \033[0m
 
-LIBS = libft/libft.a
+LIBS = libft/libft.a mlx/libmlx.a
 
 $(OBJ_DIR)%.o: %.c Makefile
 	@mkdir -p $(OBJ_DIR)
@@ -31,6 +31,7 @@ $(OBJ_DIR)%.o: %.c Makefile
 
 all:
 	@$(MAKE) -C libft
+	@$(MAKE) -C mlx
 	@$(MAKE) $(NAME)
 
 $(NAME):: $(OBJS)
@@ -44,6 +45,7 @@ $(NAME)::
 clean:
 	@$(RM) $(OBJ_DIR)
 	@$(MAKE) clean -C libft
+	@$(MAKE) clean -C mlx
 	@echo "$(RED)\ndestruction successful\n$(NC)"
 
 fclean: clean
