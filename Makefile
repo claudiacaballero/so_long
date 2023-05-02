@@ -6,13 +6,13 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 16:28:40 by ccaballe          #+#    #+#              #
-#    Updated: 2023/04/26 17:27:09 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/05/02 12:58:55 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror -MMD
-SRC = so_long.c map_checker.c path_finder.c
+SRC = so_long.c map_checker.c path_finder.c events.c
 
 OBJ_DIR = objects/
 OBJS = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
@@ -30,9 +30,9 @@ $(OBJ_DIR)%.o: %.c Makefile
 	@$(CC) $(CFLAGS) -I./ -c $< -o $@
 
 all:
-	@$(MAKE) -C libft
-	@$(MAKE) -C mlx
-	@$(MAKE) $(NAME)
+	@$(MAKE) -C libft --no-print-directory
+	@$(MAKE) -C mlx --no-print-directory
+	@$(MAKE) $(NAME) --no-print-directory
 
 $(NAME):: $(OBJS)
 	
@@ -43,9 +43,9 @@ $(NAME)::
 	@echo -n
 
 clean:
-	@$(RM) $(OBJ_DIR)
-	@$(MAKE) clean -C libft
-	@$(MAKE) clean -C mlx
+	@$(RM) $(OBJ_DIR) --no-print-directory
+	@$(MAKE) clean -C libft --no-print-directory
+	@$(MAKE) clean -C mlx --no-print-directory
 	@echo "$(RED)\ndestruction successful\n$(NC)"
 
 fclean: clean

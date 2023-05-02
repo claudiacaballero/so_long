@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/26 17:55:44 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:08:19 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,29 @@
 int	main(int argc, char **argv)
 {
 	t_game	game;
-	void	*mlx_ptr;
-	void	*win_ptr;
+	t_win	win;
 
 	if (argc != 2)
 		ft_error(0, "ERROR\nPlease enter an argument\n");
 	init_game(&game);
 	check_map(argv[1], &game);
 	path_checker(&game);
-	mlx_ptr = mlx_init();
-	if (!mlx_ptr)
-		return (1);
-	win_ptr = mlx_new_window (mlx_ptr, game.len * 25, game.heig * 50, "clau");
-	if (!win_ptr)
-		return (2);
-	mlx_loop(mlx_ptr);
-	matrix_free(game.map);
+	new_program(&win, &game);
+	if (!win.mlx_ptr || !win.win_ptr)
+		ft_error(1, "ERROR\nProblems with mlx");
+	mlx_hook(win.win_ptr, DESTROY_WIN, 0, &close_window, &win);
+	mlx_key_hook(win.win_ptr, &manage_keys, &win);
+	mlx_loop(win.mlx_ptr);
 	return (0);
+}
+
+void	ft_error(int err, char *msg)
+{
+	int	len;
+
+	len = (int)ft_strlen(msg);
+	write(2, msg, len);
+	exit(err);
 }
 
 void	init_game(t_game *game)
@@ -47,11 +53,11 @@ void	init_game(t_game *game)
 	game->map = NULL;
 }
 
-void	ft_error(int err, char *msg)
+void	new_program(t_win *win, t_game *game)
 {
-	int	len;
-
-	len = (int)ft_strlen(msg);
-	write(2, msg, len);
-	exit(err);
+	win->h = game->heig * 50;
+	win->w = game->len * 25;
+	win->mlx_ptr = mlx_init();
+	win->win_ptr = mlx_new_window (win->mlx_ptr, win->w, win->h, "clau");
+	win->game = game;
 }
