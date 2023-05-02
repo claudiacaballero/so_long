@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/02 16:08:19 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:05:57 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		ft_error(0, "ERROR\nPlease enter an argument\n");
-	init_game(&game);
-	check_map(argv[1], &game);
-	path_checker(&game);
+	init_game(argv[1], &game);
 	new_program(&win, &game);
 	if (!win.mlx_ptr || !win.win_ptr)
 		ft_error(1, "ERROR\nProblems with mlx");
@@ -40,7 +38,7 @@ void	ft_error(int err, char *msg)
 	exit(err);
 }
 
-void	init_game(t_game *game)
+void	init_game(char *ar, t_game *game)
 {
 	game->movements = 0;
 	game->collected = 0;
@@ -51,6 +49,8 @@ void	init_game(t_game *game)
 	game->len = 0;
 	game->heig = 0;
 	game->map = NULL;
+	check_map(ar, game);
+	path_checker(game);
 }
 
 void	new_program(t_win *win, t_game *game)
@@ -58,6 +58,6 @@ void	new_program(t_win *win, t_game *game)
 	win->h = game->heig * 50;
 	win->w = game->len * 25;
 	win->mlx_ptr = mlx_init();
-	win->win_ptr = mlx_new_window (win->mlx_ptr, win->w, win->h, "clau");
+	win->win_ptr = mlx_new_window (win->mlx_ptr, win->w, win->h, "clau's game");
 	win->game = game;
 }

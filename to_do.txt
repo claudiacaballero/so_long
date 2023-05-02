@@ -1,0 +1,5 @@
+1. acabar de fer mlx_xpm_to_image
+2. initzialitzar totes les t_imgs
+3. mirar com posar les imatges (una o moltes)
+4. buscar sprites i passar els arxius a xpm
+5. organitzar tot en carpetes (una de libs, una de src, una de assets, etc)

@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/02 16:08:08 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:04:43 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,20 @@ typedef struct s_win
 	t_game	*game;
 }	t_win;
 
+typedef struct s_img
+{
+	t_win	*win;
+	void	*img_ptr;
+	char	*addr;
+	int		bpp;
+	int		endian;
+	int		line_len;
+}	t_img;
+
 //main
 void	ft_error(int err, char *msg);
-void	init_game(t_game *game);
-void	new_program(t_win *window, t_game *game);
+void	init_game(char *ar, t_game *game);
+void	new_program(t_win *win, t_game *game);
 
 //map_checker
 void	check_map(char *file, t_game *game);
