@@ -6,11 +6,11 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:38:52 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/02 15:40:55 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:16:08 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	close_window(t_win	*window)
 {

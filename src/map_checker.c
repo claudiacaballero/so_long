@@ -6,11 +6,11 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:04:51 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/26 17:38:36 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:16:16 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	check_map(char *file, t_game *game)
 {

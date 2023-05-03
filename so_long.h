@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/02 19:04:43 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:13:30 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <string.h>
-# include "libft/libft.h"
-# include "mlx/mlx.h"
+# include "libs/libft/libft.h"
+# include "libs/mlx/mlx.h"
 
 //events
 # define DESTROY_WIN 17

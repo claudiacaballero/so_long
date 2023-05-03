@@ -6,11 +6,11 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:21:54 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/26 17:50:38 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:16:19 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	path_checker(t_game *game)
 {
