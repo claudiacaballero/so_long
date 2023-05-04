@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/03 15:13:30 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:52:47 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ typedef struct s_img
 	int		bpp;
 	int		endian;
 	int		line_len;
+	int		w;
+	int		h;
 }	t_img;
 
 //main
@@ -88,5 +90,8 @@ int		valid_cell(t_game *game, char **map, int row, int col);
 //events
 int		close_window(t_win	*window);
 int		manage_keys(int keycode, t_win *window);
+
+//images
+void	put_images(t_win *win);
 
 #endif

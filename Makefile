@@ -6,13 +6,13 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 16:28:40 by ccaballe          #+#    #+#              #
-#    Updated: 2023/05/03 15:32:38 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/05/04 17:36:30 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror -MMD
-FILES = so_long.c map_checker.c path_finder.c events.c
+FILES = so_long.c map_checker.c path_finder.c events.c sprites.c
 
 SRC_DIR = src/
 SRC = $(addprefix $(SRC_DIR), $(FILES))

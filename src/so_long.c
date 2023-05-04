@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/03 15:16:21 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:51:42 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 	new_program(&win, &game);
 	if (!win.mlx_ptr || !win.win_ptr)
 		ft_error(1, "ERROR\nProblems with mlx");
+	put_images(&win);
 	mlx_hook(win.win_ptr, DESTROY_WIN, 0, &close_window, &win);
 	mlx_key_hook(win.win_ptr, &manage_keys, &win);
 	mlx_loop(win.mlx_ptr);
