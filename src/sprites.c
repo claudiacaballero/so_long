@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:28:55 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/05 17:07:40 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/05 19:04:24 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	put_hero(t_win *win, int x, int y)
 	t_img	img;
 
 	img.img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \
-		"images/xpm/Pink.xpm", &img.w, &img.h);
+		"sprites/Pink.xpm", &img.w, &img.h);
 	if (!img.img_ptr)
 		ft_error(2, "ERROR\nCould not open image");
 	img.addr = mlx_get_data_addr(img.img_ptr, &img.bpp, \
@@ -37,7 +37,7 @@ void	put_walls(t_win *win, int x, int y)
 	t_img	img;
 
 	img.img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \
-		"images/xpm/tile010.xpm", &img.w, &img.h);
+		"sprites/tile010.xpm", &img.w, &img.h);
 	if (!img.img_ptr)
 		ft_error(2, "ERROR\nCould not open image");
 	img.addr = mlx_get_data_addr(img.img_ptr, &img.bpp, \
@@ -53,7 +53,7 @@ void	put_background(t_win *win)
 	int		y;
 
 	img.img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \
-		"images/xpm/tile081.xpm", &img.w, &img.h);
+		"sprites/tile081.xpm", &img.w, &img.h);
 	if (!img.img_ptr)
 		ft_error(2, "ERROR\nCould not open image");
 	img.addr = mlx_get_data_addr(img.img_ptr, &img.bpp, \
@@ -87,7 +87,7 @@ void	put_collects(t_win *win)
 	int		y;
 
 	img.img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \
-		"images/xpm/Icon10.xpm", &img.w, &img.h);
+		"sprites/Icon10.xpm", &img.w, &img.h);
 	if (!img.img_ptr)
 		ft_error(2, "ERROR\nCould not open image");
 	img.addr = mlx_get_data_addr(img.img_ptr, &img.bpp, \

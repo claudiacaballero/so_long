@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/05 17:06:36 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/05 19:09:55 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@
 # define KEY_UP 126
 
 //structs
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
+
 typedef struct s_game
 {
 	int		movements;
@@ -47,6 +53,7 @@ typedef struct s_game
 	int		p;
 	int		e;
 	int		c;
+	t_point	player;
 }	t_game;
 
 typedef struct s_win
