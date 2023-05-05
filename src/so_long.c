@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/04 17:51:42 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/05 13:20:49 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	init_game(char *ar, t_game *game)
 
 void	new_program(t_win *win, t_game *game)
 {
-	win->h = game->heig * 50;
-	win->w = game->len * 25;
+	win->h = game->heig * 32;
+	win->w = game->len * 32;
 	win->mlx_ptr = mlx_init();
 	win->win_ptr = mlx_new_window (win->mlx_ptr, win->w, win->h, "clau's game");
 	win->game = game;

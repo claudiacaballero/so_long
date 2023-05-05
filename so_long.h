@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/04 17:52:47 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:06:36 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,9 @@ int		manage_keys(int keycode, t_win *window);
 
 //images
 void	put_images(t_win *win);
+void	put_hero(t_win *win, int x, int y);
+void	put_background(t_win *win);
+void	put_collects(t_win *win);
+void	put_walls(t_win *win, int x, int y);
 
 #endif
