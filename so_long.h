@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/05 19:09:55 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/10 20:04:55 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,22 @@ typedef struct s_point
 	int	y;
 }	t_point;
 
-typedef struct s_game
+typedef struct s_check
 {
-	int		movements;
-	int		collected;
-	int		exit_found;
-	char	**map;
-	int		len;
-	int		heig;
 	int		p;
 	int		e;
 	int		c;
+	int		collected;
+	int		exit;
+}	t_check;
+
+typedef struct s_game
+{
+	int		movements;
+	char	**map;
+	int		len;
+	int		heig;
+	t_check	check;
 	t_point	player;
 }	t_game;
 
@@ -97,6 +102,12 @@ int		valid_cell(t_game *game, char **map, int row, int col);
 //events
 int		close_window(t_win	*window);
 int		manage_keys(int keycode, t_win *window);
+
+//movements
+void	move_up(t_win *win, t_game *game);
+void	move_down(t_win *win, t_game *game);
+void	move_right(t_win *win, t_game *game);
+void	move_left(t_win *win, t_game *game);
 
 //images
 void	put_images(t_win *win);

@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:21:54 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/05 19:12:22 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:35:27 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void	path_checker(t_game *game)
 		}
 	}
 	matrix_free(map);
-	game->exit_found = 0;
-	game->collected = 0;
 }
 
 char	**temp_map(t_game *game)
@@ -63,7 +61,7 @@ char	**temp_map(t_game *game)
 
 int	valid_path(t_game *game, char **map, int row, int col)
 {
-	if (game->collected == game->c && game->exit_found == 1)
+	if (game->check.collected == game->check.c && game->check.exit == 1)
 		return (1);
 	map[row][col] = '1';
 	if (valid_cell(game, map, row, col + 1))
@@ -88,9 +86,9 @@ int	valid_cell(t_game *game, char **map, int row, int col)
 		if (map[row][col] == '1')
 			return (0);
 		if (map[row][col] == 'C')
-			game->collected++;
+			game->check.collected++;
 		if (map[row][col] == 'E')
-			game->exit_found = 1;
+			game->check.exit = 1;
 		return (1);
 	}
 	return (0);

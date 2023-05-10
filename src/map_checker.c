@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:04:51 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/05 16:29:08 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:35:08 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ void	valid_line(char *line, t_game *game)
 	while (line[++i])
 	{
 		if (line[i] == 'P')
-			game->p++;
+			game->check.p++;
 		else if (line[i] == 'E')
-			game->e++;
+			game->check.e++;
 		else if (line[i] == 'C')
-			game->c++;
+			game->check.c++;
 		else if (line[i] != '1' && line[i] != '0' && line[i] != '\n')
 			ft_error(1, "ERROR\nUnrecognized characters in map\n");
 	}
@@ -70,11 +70,11 @@ void	check_items(t_game *game)
 	size_t	len_line;
 
 	i = 0;
-	if (game->p != 1)
+	if (game->check.p != 1)
 		ft_error(1, "ERROR\nMap should contain exactly 1 starting position\n");
-	if (game->c < 1)
+	if (game->check.c < 1)
 		ft_error(1, "ERROR\nMap should contain at least 1 collectible\n");
-	if (game->e != 1)
+	if (game->check.e != 1)
 		ft_error(1, "ERROR\nMap should contain exactly 1 exit\n");
 	len_line = ft_strlen(game->map[i]);
 	while (game->map[i])

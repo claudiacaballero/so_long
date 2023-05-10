@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/05 13:20:49 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:33:23 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	ft_error(int err, char *msg)
 void	init_game(char *ar, t_game *game)
 {
 	game->movements = 0;
-	game->collected = 0;
-	game->exit_found = 0;
-	game->c = 0;
-	game->p = 0;
-	game->e = 0;
 	game->len = 0;
 	game->heig = 0;
 	game->map = NULL;
+	game->check.collected = 0;
+	game->check.exit = 0;
+	game->check.c = 0;
+	game->check.p = 0;
+	game->check.e = 0;
 	check_map(ar, game);
 	path_checker(game);
 }
