@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:38:52 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/10 20:03:54 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/10 20:25:42 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,3 @@ int	manage_keys(int keycode, t_win *window)
 		move_left(window, window->game);
 	return (0);
 }
-
-

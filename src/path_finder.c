@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:21:54 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/10 15:35:27 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/10 20:28:35 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	path_checker(t_game *game)
 			}
 		}
 	}
+	game->check.collected = 0;
+	game->check.exit = 0;
 	matrix_free(map);
 }
 

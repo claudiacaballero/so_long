@@ -1,0 +1,7 @@
+fer estructures amb les imatges
+fer una funcio de posar la gespa
+gestionar si el personatge passa per sobre la moneda (canviar el mapa per si torna a passar q no conti x 2)
+posar exit al mapa
+mirar q si s'han trobat totes les monedes i es passa per E s'acabi el joc
+contar moviments
+acabar de mirar la struct de game (potser no cal la de check, o alla nomes posar 'c', 'e' i 'p' )
