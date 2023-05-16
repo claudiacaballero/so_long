@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/10 20:04:55 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/16 21:36:50 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,38 +49,43 @@ typedef struct s_check
 	int		c;
 	int		collected;
 	int		exit;
+	int		end;
 }	t_check;
-
-typedef struct s_game
-{
-	int		movements;
-	char	**map;
-	int		len;
-	int		heig;
-	t_check	check;
-	t_point	player;
-}	t_game;
 
 typedef struct s_win
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		w;
-	int		h;
-	t_game	*game;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	int			w;
+	int			h;
 }	t_win;
 
 typedef struct s_img
 {
 	t_win	*win;
 	void	*img_ptr;
-	char	*addr;
-	int		bpp;
-	int		endian;
-	int		line_len;
-	int		w;
-	int		h;
 }	t_img;
+
+typedef struct s_sprites
+{
+	t_img	*hero;
+	t_img	*tile;
+	t_img	*wall;
+	t_img	*coll;
+	t_img	*exit;
+}	t_sprites;
+
+typedef struct s_game
+{
+	int			movements;
+	char		**map;
+	int			len;
+	int			heig;
+	t_check		check;
+	t_point		pos;
+	t_sprites	*sprts;
+	t_win		*win;
+}	t_game;
 
 //main
 void	ft_error(int err, char *msg);
@@ -100,8 +105,8 @@ int		valid_path(t_game *game, char **map, int row, int col);
 int		valid_cell(t_game *game, char **map, int row, int col);
 
 //events
-int		close_window(t_win	*window);
-int		manage_keys(int keycode, t_win *window);
+int		close_window(t_game	*game);
+int		manage_keys(int keycode, t_game	*game);
 
 //movements
 void	move_up(t_win *win, t_game *game);
@@ -110,10 +115,8 @@ void	move_right(t_win *win, t_game *game);
 void	move_left(t_win *win, t_game *game);
 
 //images
-void	put_images(t_win *win);
-void	put_hero(t_win *win, int x, int y);
-void	put_background(t_win *win);
-void	put_collects(t_win *win);
-void	put_walls(t_win *win, int x, int y);
+void	render_map(t_game *game, t_win *win);
+void	init_sprites(t_win *win, t_game *game);
+void	collect_item(t_game *game, int *x, int *y, char item);
 
 #endif

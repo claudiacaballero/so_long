@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:21:54 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/10 20:28:35 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/11 13:09:16 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	path_checker(t_game *game)
 		{
 			if (map[i][j] == 'P')
 			{
-				game->player.x = j;
-				game->player.y = i;
+				game->pos.x = j;
+				game->pos.y = i;
 				if (valid_path(game, map, i, j) == 0)
 					ft_error(0, "ERROR\nNo valid path found");
 			}
