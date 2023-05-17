@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:43:56 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/16 21:22:28 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:24:26 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	init_sprites(t_win *win, t_game *game)
 	int	w;
 	int	h;
 
+	ft_printf("not here\n");
 	game->sprts->hero->img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \
 		"sprites/hero.xpm", &w, &h);
 	game->sprts->tile->img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \

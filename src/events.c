@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:38:52 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/16 21:41:54 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:18:26 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,23 @@ int	close_window(t_game	*game)
 
 int	manage_keys(int keycode, t_game	*game)
 {
+	t_point	new;
+
+	new.x = game->pos.x;
+	new.y = game->pos.y;
 	if (keycode == ESC)
 		close_window(game);
 	else if (keycode == KEY_W || keycode == KEY_UP)
-		move_up(game->win, game);
+		new.y--;
 	else if (keycode == KEY_S || keycode == KEY_DOWN)
-		move_down(game->win, game);
+		new.y++;
 	else if (keycode == KEY_D || keycode == KEY_RIGHT)
-		move_right(game->win, game);
+		new.x++;
 	else if (keycode == KEY_A || keycode == KEY_LEFT)
-		move_left(game->win, game);
+		new.x--;
+	else
+		return (1);
+	move(game->win, game, new);
 	if (game->check.end == 1)
 		close_window(game);
 	return (0);

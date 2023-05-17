@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/16 21:37:19 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:21:34 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(int argc, char **argv)
 {
 	t_game		game;
 	t_win		win;
-	// t_sprites	s;
 
 	if (argc != 2)
 		ft_error(0, "ERROR\nPlease enter an argument\n");

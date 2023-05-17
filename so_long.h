@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/16 21:36:50 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:18:39 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,14 +109,11 @@ int		close_window(t_game	*game);
 int		manage_keys(int keycode, t_game	*game);
 
 //movements
-void	move_up(t_win *win, t_game *game);
-void	move_down(t_win *win, t_game *game);
-void	move_right(t_win *win, t_game *game);
-void	move_left(t_win *win, t_game *game);
+void	move(t_win *win, t_game *game, t_point new);
+void	collect_item(t_game *game, int x, int y, char item);
 
 //images
 void	render_map(t_game *game, t_win *win);
 void	init_sprites(t_win *win, t_game *game);
-void	collect_item(t_game *game, int *x, int *y, char item);
 
 #endif
