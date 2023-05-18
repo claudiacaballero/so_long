@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/17 13:21:34 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/18 13:55:24 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ void	init_game(char *ar, t_game *game)
 	game->check.p = 0;
 	game->check.e = 0;
 	game->check.end = 0;
+	game->sprts->hero = NULL;
+	game->sprts->tile = NULL;
+	game->sprts->wall = NULL;
+	game->sprts->coll = NULL;
+	game->sprts->exit = NULL;
 	check_map(ar, game);
 	path_checker(game);
 }

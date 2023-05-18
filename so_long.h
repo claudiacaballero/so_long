@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/17 13:18:39 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/18 13:20:01 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,13 @@ typedef struct s_win
 	int			h;
 }	t_win;
 
-typedef struct s_img
-{
-	t_win	*win;
-	void	*img_ptr;
-}	t_img;
-
 typedef struct s_sprites
 {
-	t_img	*hero;
-	t_img	*tile;
-	t_img	*wall;
-	t_img	*coll;
-	t_img	*exit;
+	void	*hero;
+	void	*tile;
+	void	*wall;
+	void	*coll;
+	void	*exit;
 }	t_sprites;
 
 typedef struct s_game

@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:43:56 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/17 13:24:26 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/18 13:20:37 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ void	render_map(t_game *game, t_win *win)
 		while (++x < game->len)
 		{
 			mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
-				game->sprts->tile->img_ptr, x * 32, y * 32);
+				game->sprts->tile, x * 32, y * 32);
 			if (game->map[y][x] == '1')
 				mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
-						game->sprts->wall->img_ptr, x * 32, y * 32);
+						game->sprts->wall, x * 32, y * 32);
 			else if (game->map[y][x] == 'C')
 				mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
-					game->sprts->coll->img_ptr, x * 32, y * 32);
+					game->sprts->coll, x * 32, y * 32);
 			else if (game->map[y][x] == 'P')
 				mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
-					game->sprts->hero->img_ptr, x * 32, y * 32);
+					game->sprts->hero, x * 32, y * 32);
 			else if (game->map[y][x] == 'E')
 				mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
-					game->sprts->exit->img_ptr, x * 32, y * 32);
+					game->sprts->exit, x * 32, y * 32);
 		}
 	}
 }
@@ -46,19 +46,18 @@ void	init_sprites(t_win *win, t_game *game)
 	int	w;
 	int	h;
 
-	ft_printf("not here\n");
-	game->sprts->hero->img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \
+	game->sprts->hero = mlx_xpm_file_to_image(win->mlx_ptr, \
 		"sprites/hero.xpm", &w, &h);
-	game->sprts->tile->img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \
+	game->sprts->tile = mlx_xpm_file_to_image(win->mlx_ptr, \
 		"sprites/grass.xpm", &w, &h);
-	game->sprts->wall->img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \
+	game->sprts->wall = mlx_xpm_file_to_image(win->mlx_ptr, \
 		"sprites/rock.xpm", &w, &h);
-	game->sprts->coll->img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \
+	game->sprts->coll = mlx_xpm_file_to_image(win->mlx_ptr, \
 		"sprites/chest.xpm", &w, &h);
-	game->sprts->exit->img_ptr = mlx_xpm_file_to_image(win->mlx_ptr, \
+	game->sprts->exit = mlx_xpm_file_to_image(win->mlx_ptr, \
 		"sprites/exit.xpm", &w, &h);
-	if (!game->sprts->hero->img_ptr || !game->sprts->tile->img_ptr || \
-		!game->sprts->wall->img_ptr || !game->sprts->coll->img_ptr || \
-		!game->sprts->exit->img_ptr)
+	if (!game->sprts->hero || !game->sprts->tile || \
+		!game->sprts->wall || !game->sprts->coll || \
+		!game->sprts->exit)
 		ft_error(2, "ERROR\nCould not open images");
 }
