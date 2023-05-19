@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:18:56 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/08 15:23:51 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/19 13:08:21 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,28 @@ char	*ft_strjoin_free(char *storage, char *buffer)
 		str[i++] = buffer[j++];
 	str[i] = '\0';
 	free(storage);
+	return (str);
+}
+
+char	*ft_strjoin_doublefree(char *str1, char *str2)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	if (!str1)
+		return (ft_strdup(str2));
+	str = malloc(sizeof(char) * ((ft_strlen(str1) + ft_strlen(str2)) + 1));
+	if (!str)
+		return (ft_free(&str1));
+	i = -1;
+	j = 0;
+	while (str1[++i] != '\0')
+		str[i] = str1[i];
+	while (str2[j] != '\0')
+		str[i++] = str2[j++];
+	str[i] = '\0';
+	free(str1);
+	free(str2);
 	return (str);
 }

@@ -6,11 +6,32 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:43:56 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/19 12:41:23 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:56:40 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	init_sprites(t_win *win, t_game *game)
+{
+	int	w;
+	int	h;
+
+	game->sprts->hero = mlx_xpm_file_to_image(win->mlx_ptr, \
+		"sprites/hero.xpm", &w, &h);
+	game->sprts->tile = mlx_xpm_file_to_image(win->mlx_ptr, \
+		"sprites/grass.xpm", &w, &h);
+	game->sprts->wall = mlx_xpm_file_to_image(win->mlx_ptr, \
+		"sprites/bush.xpm", &w, &h);
+	game->sprts->coll = mlx_xpm_file_to_image(win->mlx_ptr, \
+		"sprites/chest.xpm", &w, &h);
+	game->sprts->exit = mlx_xpm_file_to_image(win->mlx_ptr, \
+		"sprites/exit.xpm", &w, &h);
+	if (!game->sprts->hero || !game->sprts->tile || \
+		!game->sprts->wall || !game->sprts->coll || \
+		!game->sprts->exit)
+		ft_error(2, "ERROR\nCould not open images");
+}
 
 void	render_map(t_game *game, t_win *win)
 {
@@ -39,25 +60,4 @@ void	render_map(t_game *game, t_win *win)
 					game->sprts->exit, x * 32, y * 32);
 		}
 	}
-}
-
-void	init_sprites(t_win *win, t_game *game)
-{
-	int	w;
-	int	h;
-
-	game->sprts->hero = mlx_xpm_file_to_image(win->mlx_ptr, \
-		"sprites/hero.xpm", &w, &h);
-	game->sprts->tile = mlx_xpm_file_to_image(win->mlx_ptr, \
-		"sprites/grass.xpm", &w, &h);
-	game->sprts->wall = mlx_xpm_file_to_image(win->mlx_ptr, \
-		"sprites/rock.xpm", &w, &h);
-	game->sprts->coll = mlx_xpm_file_to_image(win->mlx_ptr, \
-		"sprites/chest.xpm", &w, &h);
-	game->sprts->exit = mlx_xpm_file_to_image(win->mlx_ptr, \
-		"sprites/exit.xpm", &w, &h);
-	if (!game->sprts->hero || !game->sprts->tile || \
-		!game->sprts->wall || !game->sprts->coll || \
-		!game->sprts->exit)
-		ft_error(2, "ERROR\nCould not open images");
 }

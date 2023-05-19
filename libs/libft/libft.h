@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:42:46 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/04/08 15:32:39 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/19 13:08:35 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	*matrix_free(char **m);
 //extras 
 char	*ft_strstr(char *h, char *n);
 char	*ft_strtrim_free(char *s1, char *set);
+char	*ft_strcat(char *dest, char *src);
+char	*ft_strjoin_doublefree(char *str1, char *str2);
 
 //bonus
 t_list	*ft_lstnew(void *content);
