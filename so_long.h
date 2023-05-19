@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:09:18 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/18 13:20:01 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:44:26 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ typedef struct s_game
 
 //main
 void	ft_error(int err, char *msg);
-void	init_game(char *ar, t_game *game);
+void	init_game(char *ar, t_game *game, t_sprites *s);
 void	new_program(t_win *win, t_game *game);
 
 //map_checker

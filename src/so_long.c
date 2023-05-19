@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:06:41 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/18 13:55:24 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:44:07 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ int	main(int argc, char **argv)
 {
 	t_game		game;
 	t_win		win;
+	t_sprites	s;
 
 	if (argc != 2)
 		ft_error(0, "ERROR\nPlease enter an argument\n");
-	init_game(argv[1], &game);
+	init_game(argv[1], &game, &s);
 	new_program(&win, &game);
 	init_sprites(&win, &game);
 	if (!win.mlx_ptr || !win.win_ptr)
@@ -40,7 +41,7 @@ void	ft_error(int err, char *msg)
 	exit(err);
 }
 
-void	init_game(char *ar, t_game *game)
+void	init_game(char *ar, t_game *game, t_sprites *s)
 {
 	game->movements = 0;
 	game->len = 0;
@@ -52,11 +53,12 @@ void	init_game(char *ar, t_game *game)
 	game->check.p = 0;
 	game->check.e = 0;
 	game->check.end = 0;
-	game->sprts->hero = NULL;
-	game->sprts->tile = NULL;
-	game->sprts->wall = NULL;
-	game->sprts->coll = NULL;
-	game->sprts->exit = NULL;
+	s->hero = NULL;
+	s->tile = NULL;
+	s->wall = NULL;
+	s->coll = NULL;
+	s->exit = NULL;
+	game->sprts = s;
 	check_map(ar, game);
 	path_checker(game);
 }
