@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:38:52 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/22 12:17:44 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/22 13:24:51 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	outro(t_win *win, t_game *game)
 	int		x;
 	int		y;
 
+	ft_printf("Congratulations you won !!!\n");
 	y = -1;
 	while (++y < win->h)
 	{

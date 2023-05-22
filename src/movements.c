@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:45 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/18 13:22:18 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/22 13:34:55 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	move(t_win *win, t_game *game, t_point new)
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
 		game->sprts->hero, new.x * 32, new.y * 32);
 	game->movements++;
-	ft_printf("nbr movements = %i\n", game->movements);
+	if (game->movements != 0)
+		ft_printf("nbr movements = %i\n", game->movements);
 	if (game->map[new.y][new.x] == 'C' || game->map[new.y][new.x] == 'E')
 		collect_item(game, new.x, new.y, game->map[new.y][new.x]);
 }
@@ -40,7 +41,13 @@ void	move(t_win *win, t_game *game, t_point new)
 void	collect_item(t_game *game, int x, int y, char item)
 {
 	if (item == 'C')
+	{
+		mlx_put_image_to_window(game->win->mlx_ptr, game->win->win_ptr, \
+			game->sprts->tile, x * 32, y * 32);
+		mlx_put_image_to_window(game->win->mlx_ptr, game->win->win_ptr, \
+			game->sprts->hero, x * 32, y * 32);
 		game->map[y][x] = '0';
+	}
 	else
 	{
 		if (game->check.collected == game->check.c)
