@@ -6,12 +6,12 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 16:28:40 by ccaballe          #+#    #+#              #
-#    Updated: 2023/05/18 17:48:18 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/05/22 11:31:31 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-CFLAGS = -Wall -Wextra -Werror -MMD -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -MMD 
 FILES = so_long.c map_checker.c path_finder.c events.c render_map.c movements.c
 
 SRC_DIR = src/
