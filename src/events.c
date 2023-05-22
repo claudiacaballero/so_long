@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:38:52 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/22 13:24:51 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/23 00:01:38 by claudia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,29 @@ void	outro(t_win *win, t_game *game)
 	mlx_string_put(win->mlx_ptr, win->win_ptr, x, y, 0x00FFFFFF, str);
 	str = "Press ESC to exit";
 	mlx_string_put(win->mlx_ptr, win->win_ptr, x, y + 32, 0x00FFFFFF, str);
+	game->check.start = 0;
 }
 
-int	manage_keys(int keycode, t_game	*game)
+int	manage_keys(int key, t_game	*game)
 {
 	t_point	new;
 
 	new.x = game->pos.x;
 	new.y = game->pos.y;
-	if (keycode == ESC)
+	if (key == ESC)
 		close_window(game);
-	else if (keycode == SPACE && game->check.start == 0)
+	else if (key == SPACE && game->check.start == 0)
 	{
 		game->check.start = 1;
 		render_map(game, game->win);
 	}
-	else if (keycode == KEY_W || keycode == KEY_UP)
+	else if ((key == KEY_W || key == KEY_UP) && game->check.start == 1)
 		new.y--;
-	else if (keycode == KEY_S || keycode == KEY_DOWN)
+	else if ((key == KEY_S || key == KEY_DOWN) && game->check.start == 1)
 		new.y++;
-	else if (keycode == KEY_D || keycode == KEY_RIGHT)
+	else if ((key == KEY_D || key == KEY_RIGHT) && game->check.start == 1)
 		new.x++;
-	else if (keycode == KEY_A || keycode == KEY_LEFT)
+	else if ((key == KEY_A || key == KEY_LEFT) && game->check.start == 1)
 		new.x--;
 	else
 		return (1);

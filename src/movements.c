@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:45 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/05/22 13:34:55 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/05/23 00:03:52 by claudia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ void	move(t_win *win, t_game *game, t_point new)
 	y = game->pos.y;
 	if (!valid_cell(game, game->map, new.y, new.x))
 		return ;
-	if (game->map[y][x] != 'E')
-		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
-			game->sprts->tile, x * 32, y * 32);
-	else
+	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
+		game->sprts->tile, x * 32, y * 32);
+	if (game->map[y][x] == 'E')
 		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
 			game->sprts->exit, x * 32, y * 32);
 	game->pos.x = new.x;
